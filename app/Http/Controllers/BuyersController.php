@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\buyersInformation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class BuyersController extends Controller
 {
@@ -33,7 +34,7 @@ class BuyersController extends Controller
         ]);
 
         $buyersField['is_active'] = true;
-        $buyersField['data_created'] = true;
+        $buyersField['data_created'] = Carbon::now();
 
         $buyersInformation = buyersInformation::create($buyersField);
 
