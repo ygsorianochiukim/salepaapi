@@ -11,20 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('purchase_i_information_table', function (Blueprint $table) {
-            $table->id('purchase_i_information_id');
-            
+        Schema::create('payment_i_information_table', function (Blueprint $table) {
+            $table->id('payment_i_information_id');
             $table->foreignId('buyers_i_information_id')
                 ->constrained('buyers_i_information_table', 'buyers_i_information_id')
                 ->cascadeOnDelete();
-
-            $table->unsignedBigInteger('mp_i_lot_id');
-            $table->string('payment_type');
-            $table->integer('terms');
-            $table->longText('e_signature');
+            $table -> longText('sales_temp_pa');
+            $table -> integer('amount');
+            $table -> integer('otp');
+            $table->unsignedBigInteger(column: 'created_by');
+            $table->timestamp('data_created');
             $table->boolean('is_active')->default(true);
-            $table->timestamp('date_created')->useCurrent();
-            $table->unsignedBigInteger('created_by');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('purchase_monitorings');
+        Schema::dropIfExists('payment_information');
     }
 };
