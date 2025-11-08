@@ -20,6 +20,7 @@ class PaymentInformationController extends Controller
             'sales_temp_pa' => 'string|required',
             'amount' => 'integer|required',
             'otp' => 'integer|required',
+            'image_binary' => 'nullable',
             'created_by' => 'integer|required',
         ]);
 

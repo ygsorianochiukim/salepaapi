@@ -22,5 +22,6 @@ class PaymentInformation extends Model
         'created_by',
         'data_created',
         'is_active',
+        'image_binary'
     ];
 }
