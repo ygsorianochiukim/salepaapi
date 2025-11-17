@@ -81,6 +81,4 @@ class PurchaseController extends Controller
 
         return response()->json($fetchInformation);
     }
-
-
 }
